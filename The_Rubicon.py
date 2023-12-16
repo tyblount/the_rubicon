@@ -7,7 +7,7 @@ overview = """Hey what's up!? It's Ty, and I'm inviting you to join me on an abs
 
 Our journey will begin at my grandparents’ on day zero. We’ll kick off at 5:30 pm, allowing us to unwind in the hot tub, catch up a bit, make some friends, double check our gear, share a hearty dinner, and gather around a campfire for a brief talk about the adventure that lies ahead. We'll head out the next morning, and as we traverse the rugged beauty of the Rubicon, we’ll forge bonds and strengthen friendships. On the morning of our last day, we’ll hike out, eat lunch at In-N-Out, then head to my grandparents for a final soak in the hot tub. Expect a group chat about a month prior to the excursion, ensuring everyone is well-prepared and eager for the trip.
 
-This is an opportunity to share in conversations on faith, Jesus, and youth ministry in a setting that encourages both exploration and spiritual introspection. I would love for you to come, and if you want to but are concerned about travel arrangements or other logistical issues, we will make it work! Also keep this low key as not just anyone is invited.
+This is an opportunity to share in conversations on faith, Jesus, and youth ministry in a setting that encourages both exploration and spiritual introspection. I would love for you to come, and if you want to but are concerned about travel arrangements, splitting gas costs, or other logistical issues, we will make it work, just reach out to me at (530)615-9619! Trying to keep it a tight group. Some people you know may have not been invited, so let's keep it lowkey.
 
 Will you join me?"""
 
