@@ -1,15 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-boys = ['Kobe', 'Trevarius', 'Judah', 'Jordy', 'Samson', 'Brady', 'James', 'Dylan', 'Chris', 'David', 'Drew', 'Toly']
-surveyQ = ['Best_date', 'Missing gear', 'General_questions', 'Recommendations', 'Expectations', 'Prayer', 'RUIn']
-df_survey = pd.DataFrame(index = boys, columns = surveyQ)
+boys = ['Kobe', 'Trevarius', 'Judah', 'Jordy', 'Samson', 'Brady', 'James', 'Dylan', 'Chef', 'David', 'Drew', 'Toly', 'Olive', 'Lucas', 'Bryan', 'Andy']
 
-overview = """Hey what's up! It's Ty, and I'm inviting you to join me on an absolute banger of a trip! Set on the stunning Rubicon River, we’ll spend four nights, wrapped around a weekend in late June or early July, and delve into untamed wilderness, creating memories that will last a lifetime. This trip is not just about backpacking; it’s an opportunity to celebrate Jesus and friendship, all while immersing ourselves in the natural beauty of God’s creation.
+overview = """Hey what's up!? It's Ty, and I'm inviting you to join me on an absolute banger of a trip! Set on the stunning Rubicon River, we’ll spend three nights wrapped around a weekend in late June/early July in untamed wilderness. But this trip isn't just backpacking; it’s an opportunity to celebrate Jesus and friendship, all while immersing ourselves in the natural beauty of God’s creation.
 
-Our journey will begin at my grandparents’ on, say, a Thursday night. We’ll kick off at 5:30 pm, allowing us to unwind in the hot tub, catch up a bit, make some friends, double check our gear, share a hearty dinner, and gather around a campfire for a brief talk about the adventure that lies ahead. Friday morning we’ll embark, and as we traverse the rugged beauty of the Rubicon, we’ll forge bonds and strengthen friendships. Monday morning we’ll hike out and lunch at In-N-Out, then head to my grandparents for a final soak in the hot tub. Expect a group chat late May, ensuring everyone is well-prepared and eager for the trip. It isn’t just about the scenic beauty that surrounds us; it’s an opportunity to share in conversations on faith, Jesus, and youth ministry in a setting that encourages both exploration and spiritual introspection.
+Our journey will begin at my grandparents’ on day zero. We’ll kick off at 5:30 pm, allowing us to unwind in the hot tub, catch up a bit, make some friends, double check our gear, share a hearty dinner, and gather around a campfire for a brief talk about the adventure that lies ahead. We'll head out the next morning, and as we traverse the rugged beauty of the Rubicon, we’ll forge bonds and strengthen friendships. On the morning of our last day, we’ll hike out, eat lunch at In-N-Out, then head to my grandparents for a final soak in the hot tub. Expect a group chat about a month prior to the excursion, ensuring everyone is well-prepared and eager for the trip.
 
-If you want to come but are concerned about travel arrangements or other logistical issues, we will make it work.
+This is an opportunity to share in conversations on faith, Jesus, and youth ministry in a setting that encourages both exploration and spiritual introspection. I would love for you to come, and if you want to but are concerned about travel arrangements or other logistical issues, we will make it work! Also keep this low key as not just anyone is invited.
 
 Will you join me?"""
 
@@ -20,62 +18,33 @@ gear_suggestions = ['Comfortable water shoes', 'Sunshirt/Athletic shirt', 'Wet s
 input_name = st.text_input("What's your name? (hint: check postage)")
 
 if input_name in boys:
-    st.title('T H E   R A D I C A L')  # title
+    st.title('T H E   R U B I C O N')  # title
 
-    tab1, tab2, tab3, tab4 = st.tabs(['Overview', 'Gear', 'Are you in?', 'Media Packet'])  # create tabs with info
-    tab1.write(overview)
+    tab1, tab2, tab3 = st.tabs(['Overview', 'Gear', 'Are you in?'])  # create tabs with info
+    tab1.write(overview) # prints paragraphs in tab 1
     
-    tab2.write("Some of you have been backpacking in similar climates and environments and some haven't been backpacking! I've put together a couple lists of gear that you'll need and gear I recommend. Take a look:)")
-    with tab2:
+    tab2.write("Some of you have been backpacking in similar climates and environments and some haven't been backpacking at all! I've put together a couple lists of gear that you'll need and gear I recommend. Take a look:)")
+    with tab2: # in tab 2, this fills in below the written line given above 2 columns, one with essential gear and another with recommended gear
         col1, col2 = st.columns(2)
         with col1:
-            st.write('ESSENTIAL:')
+            st.subheader('ESSENTIAL:')
         for gear in gear_necessities:
             col1.write(gear)
         with col2:
-            st.write('SUGGESTIONS:')
+            st.subheader('SUGGESTIONS:')
         for gear in gear_suggestions:
             col2.write(gear)
     
-    with tab3:
-        best_date = st.radio("Which weekend works best for you?", options = ["July 3-7, Wed-Sun", "July 11-15, Thu-Mon", "Other"])
-        if best_date == 'Other':
-            best_date = st.text_input("What other weekend(s) work for you:")
-        gear_essentials = st.multiselect('Are you missing any essential gear?', options = gear_necessities)
-        #if RUIn is 'No':
-        #    Not_in = st.text_area("If you don't mind sharing, is there anything I can do to get you on this trip?")
-        General_Questions = st.text_area("General questions or concerns about the trip:", value = "")
-        Recommendations = st.text_area('Do you have any recommendations for the trip?', value = "")
-        Expectations = st.text_area('Is there anything you wish to get out of a trip like this?', value = "")
-        Prayer = st.text_area('Do you have any prayer requests?', value = "")
-        RUIn = st.radio("Are you in?", options=["Yes", "No"])
-        
-        # Create a session state to persist data
-        if 'session_data' not in st.session_state:
-             st.session_state.session_data = {'df_survey': pd.DataFrame(index=boys, columns=surveyQ)}
-        
-        if st.button('Submit!'):
-            st.session_state.session_data['df_survey'].loc[input_name] = [best_date, gear_essentials, General_Questions, Recommendations, Expectations, Prayer, RUIn]
-            #df_survey.loc[input_name] = [best_date, gear_essentials, General_Questions, Recommendations, Expectations, Prayer, RUIn]
-            st.write('Submitted!')
+    with tab3: # insertion of a google form using st.markdown
+        html_code = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwq2B_OvJp1lpkRtzkDw2keT7n6mpuddhkOPIqbbCYphgC4A/viewform?embedded=true" width="640" height="2083" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>'
 
-            st.session_state.session_data['best_date'] = ""
-            st.session_state.session_data['gear_essentials'] = ""
-            st.session_state.session_data['General_Questions'] = ""
-            st.session_state.session_data['Recommendations'] = ""
-            st.session_state.session_data['Expectations'] = ""
-            st.session_state.session_data['Prayer'] = ""
-            st.session_state.session_data['RUIn'] = ""
+        st.markdown(html_code, unsafe_allow_html=True)
 
-    if input_name == 'Toly':
-        #st.write(df_survey)
-        st.write(st.session_state.session_data['df_survey'])
+#    tab4.write('try to embed media on this page, or maybe this is a good one to stick in the sidebar. Difficult to tell but need to tailor to a mobile environment.') # this was going to be an extra tab but I think it'll take a bit to actually fill out. probs have it done and ready by the groupchat and send it out then.
 
-    tab4.write('try to embed media on this page, or maybe this is a good one to stick in the sidebar. Difficult to tell but need to tailor to a mobile environment.')
-
-elif input_name is "":
+elif input_name == "": #catching an exception if nothing is input for the name
     print("")
 
-else:
-    st.write('You are not on the list, ' + input_name + '.')
+else: #meager way to catch if you input the incorrect name.
+    st.write('You are not on the list ' + input_name + '.')
     st.stop()
