@@ -1,2 +1,2 @@
 # the_rubicon
-A streamlit app that collects information in a survey-like fashion and dumps it into a pandas df.
+A streamlit app that collects information through a google form. Meant for a trip.
